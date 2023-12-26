@@ -21,7 +21,7 @@ namespace TranslatorForComputer
     /// </summary>
     public partial class MainWindow : Window
     {
-        string? words = null;
+        string? words;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,16 +31,17 @@ namespace TranslatorForComputer
         {
             var translator = new YandexTranslator();
             words =  TranslateBox.Text;
+            if (words=="")
+            {
+                ResultBox.Text = "";
+                return;
+            }
             var result = await translator.TranslateAsync( words, "En");
             ResultBox.Text = result.Translation;
         }
-
-        private async void ResultBox_KeyDown(object sender, KeyEventArgs e)
+     
+        private async void TranslateBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (e.Key != Key.Enter)
-            {
-                return;
-            }
             await Translate();
         }
     }
