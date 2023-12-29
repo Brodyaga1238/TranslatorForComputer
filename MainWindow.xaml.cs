@@ -38,7 +38,7 @@ namespace TranslatorForComputer
             }
         }
 
-        public async Task Translate()
+        internal async Task Translate()
         {
             var translator = new YandexTranslator();
             if (string.IsNullOrEmpty(Words))
@@ -49,6 +49,10 @@ namespace TranslatorForComputer
             var result = await translator.TranslateAsync(Words, "En");
             Translation = result.Translation;
         }
+        public void CopyTranslationToClipboard()
+        {
+            Clipboard.SetText(Translation);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -57,8 +61,8 @@ namespace TranslatorForComputer
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-    }
 
+    }
 
     public partial class MainWindow : Window
     {
@@ -68,13 +72,18 @@ namespace TranslatorForComputer
         {
             InitializeComponent();
             _viewModel = new TranslateViewModel();
-            DataContext = _viewModel;
+            DataContext= _viewModel;
+           
         }
-        private void TranslateBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void TranslateBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _viewModel.Translate();
+            await _viewModel.Translate();
         }
 
+        private void CopyToClipBoard_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.CopyTranslationToClipboard();
+        }
     }
 
 }

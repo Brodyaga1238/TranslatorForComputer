@@ -4,29 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TranslatorForComputer"
-        Title="TsW" Height="460" Width="650" Background="#36393F" Icon="/5166.png" WindowStartupLocation="CenterScreen">
+        Title="TsW" Height="437" Width="650" Background="#36393F" Icon="/5166.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid  Background="#FF1C1F1E">
         <TextBox x:Name="TranslateBox" 
-         Foreground="White" 
-         FontSize="18"  
-         Margin="68,10,68,0" 
-         Cursor="Arrow" 
-         Background="#FF292A2B" 
-         Text="{Binding Words, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-         VerticalAlignment="Top" 
-         Height="177"  
-         TextChanged="TranslateBox_TextChanged">
+             Foreground="White" 
+             FontSize="18"  
+             Margin="68,10,68,0" 
+             Cursor="Arrow" 
+             Background="#FF292A2B" 
+             Text="{Binding Words, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+             VerticalAlignment="Top" 
+             Height="177"  
+             TextChanged="TranslateBox_TextChanged">
         </TextBox>
 
         <TextBox x:Name="ResultBox"
-         Foreground="White" 
-         FontSize="18"
-         Margin="68,222,68,0" 
-         Cursor="Arrow" 
-         Background="#FF292A2B" 
-         IsReadOnly="True" 
-         VerticalAlignment="Top" 
-         Height="178" 
-         Text="{Binding Translation}"/>
+             Foreground="White" 
+             FontSize="18"
+             Margin="68,222,68,0" 
+             Cursor="Arrow" 
+             Background="#FF292A2B" 
+             IsReadOnly="True" 
+             VerticalAlignment="Top" 
+             Height="160" 
+             Text="{Binding Translation}"/>
+        
+        <Button x:Name="CopyToClipBoard" 
+                Margin="290,192,290,0" 
+                Foreground="White" 
+                Background="#36393F" 
+                FontSize="14" 
+                Content="Copy"
+                Height="25" 
+                Click="CopyToClipBoard_Click"
+                VerticalAlignment="Top"
+         />
+
     </Grid>
 </Window>
