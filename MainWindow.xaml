@@ -6,8 +6,27 @@
         xmlns:local="clr-namespace:TranslatorForComputer"
         Title="TsW" Height="460" Width="650" Background="#36393F" Icon="/5166.png" WindowStartupLocation="CenterScreen">
     <Grid  Background="#FF1C1F1E">
-        <TextBox x:Name="TranslateBox" Foreground="White"  FontSize="18"  Margin="68,10,68,0" Cursor="Arrow" Background="#FF292A2B" TextChanged="TranslateBox_TextChanged" VerticalAlignment="Top" Height="177"  >
+        <TextBox x:Name="TranslateBox" 
+         Foreground="White" 
+         FontSize="18"  
+         Margin="68,10,68,0" 
+         Cursor="Arrow" 
+         Background="#FF292A2B" 
+         Text="{Binding Words, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+         VerticalAlignment="Top" 
+         Height="177"  
+         TextChanged="TranslateBox_TextChanged">
         </TextBox>
-        <TextBox x:Name="ResultBox" Foreground="White"  FontSize="18" Margin="68,222,68,0" Cursor="Arrow" Background="#FF292A2B"  IsReadOnly="True" VerticalAlignment="Top" Height="178" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" />
+
+        <TextBox x:Name="ResultBox"
+         Foreground="White" 
+         FontSize="18"
+         Margin="68,222,68,0" 
+         Cursor="Arrow" 
+         Background="#FF292A2B" 
+         IsReadOnly="True" 
+         VerticalAlignment="Top" 
+         Height="178" 
+         Text="{Binding Translation}"/>
     </Grid>
 </Window>
