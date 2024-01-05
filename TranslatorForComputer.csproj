@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="5166.png" />
     <None Remove="TSN-logo-74C0135F48-seeklogo.com.png" />
+    <None Remove="икнка-1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
   <ItemGroup>
     <Resource Include="5166.png" />
     <Resource Include="TSN-logo-74C0135F48-seeklogo.com.png" />
+    <Resource Include="икнка-1.png" />
   </ItemGroup>
 
 </Project>

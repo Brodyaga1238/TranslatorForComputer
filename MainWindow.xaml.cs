@@ -84,6 +84,8 @@ namespace TranslatorForComputer
         {
             _viewModel.CopyTranslationToClipboard();
         }
+      
+
     }
 
 }
